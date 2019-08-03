@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 public class Solution {
 
-    // Complete the hourglassSum function below.
     static int hourglassSum(int[][] arr) {
         int sum = Integer.MIN_VALUE;
 
