@@ -9,8 +9,9 @@ repositories {
 }
 
 dependencies {
-    testCompile("org.junit.jupiter", "junit-jupiter-engine", "5.5.1")
+    testCompile("org.junit.jupiter", "junit-jupiter-api", "5.5.1")
     testCompile("org.hamcrest", "hamcrest", "2.1")
+    testRuntimeOnly("org.junit.jupiter", "junit-jupiter-engine", "5.5.1")
 }
 
 configure<JavaPluginConvention> {
@@ -18,6 +19,9 @@ configure<JavaPluginConvention> {
     targetCompatibility = JavaVersion.VERSION_1_8
 }
 
-tasks.withType<Test> {
+tasks.test {
     useJUnitPlatform()
+    testLogging {
+        events("passed", "skipped", "failed")
+    }
 }
