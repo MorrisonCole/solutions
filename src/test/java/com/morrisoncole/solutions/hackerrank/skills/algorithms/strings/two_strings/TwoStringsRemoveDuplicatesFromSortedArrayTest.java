@@ -2,8 +2,7 @@ package com.morrisoncole.solutions.hackerrank.skills.algorithms.strings.two_stri
 
 import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
+import static com.google.common.truth.Truth.assertThat;
 
 class TwoStringsRemoveDuplicatesFromSortedArrayTest {
 
@@ -13,13 +12,15 @@ class TwoStringsRemoveDuplicatesFromSortedArrayTest {
     void returnsYesWhenContainsSubstring() {
         String result = twoStringsSolution.containsSubstring("hello", "world");
 
-        assertThat(result, equalTo("YES"));
+        assertThat(result)
+                .isEqualTo("YES");
     }
 
     @Test
     void returnsNoWhenDoesNotContainSubstring() {
         String result = twoStringsSolution.containsSubstring("hi", "world");
 
-        assertThat(result, equalTo("NO"));
+        assertThat(result)
+                .isEqualTo("NO");
     }
 }
