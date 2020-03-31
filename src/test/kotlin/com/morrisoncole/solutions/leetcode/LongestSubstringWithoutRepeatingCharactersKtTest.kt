@@ -17,7 +17,7 @@ internal class LongestSubstringWithoutRepeatingCharactersKtTest {
         assertThat(actual).isEqualTo(expectation.expected)
     }
 
-    private companion object {
+    companion object {
         @JvmStatic
         @Suppress("Unused")
         fun expectations(): Stream<Expectation> =
