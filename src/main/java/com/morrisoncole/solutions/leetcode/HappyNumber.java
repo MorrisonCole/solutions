@@ -1,5 +1,7 @@
 package com.morrisoncole.solutions.leetcode;
 
+import java.util.HashSet;
+
 /**
  * A happy number is a number defined by the following process:
  * Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the
@@ -7,18 +9,15 @@ package com.morrisoncole.solutions.leetcode;
  * Those numbers for which this process ends in 1 are happy numbers.
  */
 public class HappyNumber {
-    private static final int TRIES = 50;
+    private static final HashSet<Integer> seen = new HashSet<>();
 
     public boolean isHappy(int n) {
-        for (int i = 0; i < TRIES; i++) {
+        while (!seen.contains(n) && n != 1) {
+            seen.add(n);
             n = sumDigits(n);
-
-            if (n == 1) {
-                return true;
-            }
         }
 
-        return false;
+        return n == 1;
     }
 
     private int sumDigits(int n) {
