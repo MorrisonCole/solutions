@@ -7,7 +7,27 @@ package com.morrisoncole.solutions.leetcode;
  * Those numbers for which this process ends in 1 are happy numbers.
  */
 public class HappyNumber {
+    private static final int TRIES = 50;
+
     public boolean isHappy(int n) {
+        for (int i = 0; i < TRIES; i++) {
+            n = sumDigits(n);
+
+            if (n == 1) {
+                return true;
+            }
+        }
+
         return false;
+    }
+
+    private int sumDigits(int n) {
+        int sum = 0;
+        while (n > 0) {
+            int current = n % 10;
+            sum += Math.pow(current, 2);
+            n /= 10;
+        }
+        return sum;
     }
 }
