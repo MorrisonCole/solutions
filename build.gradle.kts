@@ -2,8 +2,8 @@ import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 
 plugins {
     java
-    kotlin("jvm") version "1.4.0"
-    id("com.github.ben-manes.versions") version "0.31.0"
+    kotlin("jvm") version "1.4.10"
+    id("com.github.ben-manes.versions") version "0.33.0"
 }
 
 version = "1.0-SNAPSHOT"
@@ -13,11 +13,11 @@ repositories {
 }
 
 dependencies {
-    testImplementation("org.junit.jupiter", "junit-jupiter-api", "5.6.2")
-    testImplementation("org.junit.jupiter", "junit-jupiter-params", "5.6.2")
+    testImplementation("org.junit.jupiter", "junit-jupiter-api", "5.7.0")
+    testImplementation("org.junit.jupiter", "junit-jupiter-params", "5.7.0")
     testImplementation("com.google.truth", "truth", "1.0.1")
 
-    testRuntimeOnly("org.junit.jupiter", "junit-jupiter-engine", "5.6.2")
+    testRuntimeOnly("org.junit.jupiter", "junit-jupiter-engine", "5.7.0")
 }
 
 java {
