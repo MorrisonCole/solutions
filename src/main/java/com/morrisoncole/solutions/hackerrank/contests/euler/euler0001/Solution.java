@@ -23,4 +23,3 @@ public class Solution {
         return firstTermAndStep.add(lastTerm).divide(BigDecimal.valueOf(2)).multiply(numberOfTerms).toBigInteger();
     }
 }
-
