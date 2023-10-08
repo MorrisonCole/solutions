@@ -3,7 +3,7 @@ import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 plugins {
     java
     kotlin("jvm") version "1.5.0"
-    id("com.github.ben-manes.versions") version "0.39.0"
+    id("com.github.ben-manes.versions") version "0.49.0"
 }
 
 version = "1.0-SNAPSHOT"
