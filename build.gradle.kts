@@ -2,10 +2,12 @@ import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 
 plugins {
     java
-    kotlin("jvm") version "1.5.0"
-    id("com.github.ben-manes.versions") version "0.39.0"
+    kotlin("jvm") version "1.9.10"
+    id("com.github.ben-manes.versions") version "0.49.0"
+    application
 }
 
+group = "com.morrisoncole"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -13,32 +15,29 @@ repositories {
 }
 
 dependencies {
-    testImplementation("org.junit.jupiter", "junit-jupiter-api", "5.7.2")
-    testImplementation("org.junit.jupiter", "junit-jupiter-params", "5.7.2")
-    testImplementation("com.google.truth", "truth", "1.1.2")
-
-    testRuntimeOnly("org.junit.jupiter", "junit-jupiter-engine", "5.7.2")
+    testImplementation(kotlin("test"))
+    testImplementation("org.junit.jupiter", "junit-jupiter-params", "5.10.0")
+    testImplementation("com.google.truth", "truth", "1.1.5")
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_16
-    targetCompatibility = JavaVersion.VERSION_16
+kotlin {
+    jvmToolchain(20)
 }
 
 tasks {
     test {
         useJUnitPlatform()
     }
+}
 
-    named("dependencyUpdates", DependencyUpdatesTask::class.java).configure {
-        rejectVersionIf {
-            isNonStable(candidate.version) && !isNonStable(currentVersion)
-        }
+tasks.withType<DependencyUpdatesTask> {
+    rejectVersionIf {
+        isNonStable(candidate.version)
     }
 }
 
 fun isNonStable(version: String): Boolean {
-    val stableKeyword = listOf("RELEASE", "FINAL", "GA").any { version.toUpperCase().contains(it) }
+    val stableKeyword = listOf("RELEASE", "FINAL", "GA").any { version.uppercase().contains(it) }
     val regex = "^[0-9,.v-]+(-r)?$".toRegex()
     val isStable = stableKeyword || regex.matches(version)
     return isStable.not()
