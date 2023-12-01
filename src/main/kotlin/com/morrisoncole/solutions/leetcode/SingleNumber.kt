@@ -6,4 +6,4 @@ package com.morrisoncole.solutions.leetcode
  * Note:
  * Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
  */
-fun singleNumber(nums: IntArray): Int = nums.fold(0, { accumulator, num -> accumulator xor num })
+fun singleNumber(nums: IntArray): Int = nums.fold(0) { accumulator, num -> accumulator xor num }
