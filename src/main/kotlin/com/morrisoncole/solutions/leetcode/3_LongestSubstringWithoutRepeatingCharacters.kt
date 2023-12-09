@@ -1,11 +1,7 @@
 package com.morrisoncole.solutions.leetcode
 
-/**
- * Time: O(n), where n = string.length
- */
 fun lengthOfLongestSubstring(string: String): Int {
     var longest = 0
-
     val slidingWindow = hashMapOf<Char, Int>()
     var backIndex = 0
     var frontIndex = 0
