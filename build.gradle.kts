@@ -16,7 +16,7 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
-    testImplementation("org.junit.jupiter", "junit-jupiter-params", "5.10.1")
+    testImplementation("org.junit.jupiter", "junit-jupiter-params", "5.14.4")
     testImplementation("com.google.truth", "truth", "1.4.0")
 }
 
